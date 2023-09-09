@@ -12,12 +12,12 @@ Create a new download page for your attachments & resources, makes your website 
 
 # Extra Information
 For those who have problems with **Google Adsense**. It seems that the default XenForo display system conflicts with Google Ads. 
-To fix this you should edit the two templates `DC_AdvancedDownload_DownloadInternal` and `DC_AdvancedDownload_DownloadExternal`. 
-In each one, replace this code with your left ads code
+To fix this you should edit the template `DC_AdvancedDownload_template`. 
+Replace this code with your left ad code
 
 `{$xf.options.DC_AdvancedDownload_adLeft|raw}`
 
-And this code with your right ads code
+And this code with your right ad code
 
 `{$xf.options.DC_AdvancedDownload_adRight|raw}`
 
