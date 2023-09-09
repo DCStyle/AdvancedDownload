@@ -1,0 +1,14 @@
+{
+    "legacy_addon_id": "",
+    "title": "D.C Style - Advanced Download for XF2",
+    "description": "Add download page for Attachments & Resources.",
+    "version_id": 1000870,
+    "version_string": "1.0.8",
+    "dev": "D.C Style",
+    "dev_url": "https://fb.com/DumpPenguin",
+    "faq_url": "",
+    "support_url": "https://dcstyle.info",
+    "extra_urls": [],
+    "require": [],
+    "icon": "logo.png"
+}
