@@ -21,7 +21,7 @@ class Attachment extends XFCP_Attachment
 		{
 			/** @var \XF\Entity\Attachment $attachment */
 			$attachment = $this->em()->find('XF:Attachment', $params->attachment_id);
-			if ($attachment && $attachment->canView() && ($attachment->has_thumbnail || $attachment->Data->width > 0))
+			if ($attachment && $attachment->canView() && !$attachment->has_thumbnail && !$attachment->Data->width > 0)
 			{
 				/** Get option values */
 				$options = \XF::options();
