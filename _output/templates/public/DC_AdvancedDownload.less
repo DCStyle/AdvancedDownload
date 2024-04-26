@@ -1,0 +1,243 @@
+#DC_AdvancedDownload__container
+{
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	
+	.DC_AdvancedDownload__inner 
+	{
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		
+		.DC_AdvancedDownload__el 
+		{
+			flex: 1 0 auto;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			
+			&.left, &.right
+			{
+				max-width: 250px;
+				
+				> *
+				{
+					display: block;
+				}
+			}
+			
+			&.main
+			{
+				padding: 15px;
+				margin: 0 10px;
+				border: 1px solid @xf-borderColor;
+				max-width: 350px;
+				border-radius: @xf-borderRadiusMedium;
+				
+				.title
+				{
+					font-size: 1.6em;
+					font-weight: 500;
+					color: @xf-textColorDimmed;
+					white-space: nowrap;
+					max-width: 100%;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+				
+				.info
+				{
+					p
+					{
+						margin: 0;
+						color: @xf-textColorMuted;
+						.m-clearFix();
+						
+						i
+						{
+							display: inline-block;
+							width: 20px;
+							text-align: center;
+						}
+						
+						b
+						{
+							float: right;
+						}
+					}
+				}
+				
+				.timer
+				{
+					margin-top: .5em;
+					margin-bottom: .5em;
+					font-size: 2em;
+					font-weight: 600;
+				}
+				
+				.downloader
+				{
+					.DC_AdvancedDownload__loadingBar
+					{
+						display: none;
+					}
+					
+					.guide
+					{
+						font-weight: @xf-fontWeightHeavy;
+						color: @xf-textColorAttention;
+						margin: 0;
+						text-align: center;
+					}
+					
+					#DC_AdvancedDownload__downloadButton
+					{
+						margin-bottom: .5em;
+						display: block;
+						width: 100%;
+						height: auto;
+						font-size: 20px;
+						text-transform: uppercase;
+						padding: 10px 60px;
+						box-sizing: border-box;
+					}
+					
+					&.disabled
+					{
+						.DC_AdvancedDownload__form
+						{
+							position: relative;
+							
+							#DC_AdvancedDownload__downloadButton
+							{
+								pointer-events: none;
+								background: xf-diminish(@xf-linkColor, 20%);
+								border-color: transparent;
+								
+								.button-text
+								{
+									opacity: 0;
+								}
+							}
+							
+							.DC_AdvancedDownload__loadingBar
+							{
+								display: inline-block;
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								transform: translate(-50%, -50%);
+							}
+						}
+					}
+				}
+				
+				.link
+				{
+					margin: 0 auto;
+					
+					.fileLink_input
+					{
+						border: 0;
+						border-radius: @xf-borderRadiusMedium;
+						outline: 0;
+						padding: 3px 10px;
+						width: 100%;
+					}
+				}
+			}
+		}
+		
+		@media (max-width: @xf-responsiveWide)
+		{
+			flex-wrap: wrap;
+			justify-content: center;
+			
+			.DC_AdvancedDownload__el
+			{
+				width: 100%;
+				
+				&.left, &.right
+				{
+					order: 1;
+					margin: 0 5px;
+				}
+				
+				&.main
+				{
+					margin: 10px auto;
+					order: 2;
+				}
+			}
+		}
+	}
+}
+
+/** Loading bar animation */
+.DC_AdvancedDownload__loadingBar 
+{
+	display: inline-block;
+	position: relative;
+	width: 64px;
+	height: 64px;
+	
+	div 
+	{
+		position: absolute;
+		top: 27px;
+		width: 11px;
+		height: 11px;
+		border-radius: 50%;
+		background: #fff;
+		animation-timing-function: cubic-bezier(0, 1, 1, 0);
+		
+		&:nth-child(1) 
+		{
+			left: 6px;
+			animation: DC_loading_1 0.6s infinite;
+		}
+		
+		&:nth-child(2) 
+		{
+			left: 6px;
+			animation: DC_loading_2 0.6s infinite;
+		}
+		
+		&:nth-child(3) 
+		{
+			left: 26px;
+			animation: DC_loading_2 0.6s infinite;
+		}
+		
+		&:nth-child(4) 
+		{
+			left: 45px;
+			animation: DC_loading_3 0.6s infinite;
+		}
+	}
+}
+@keyframes DC_loading_1 {
+	0% {
+		transform: scale(0);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+@keyframes DC_loading_3 {
+	0% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(0);
+	}
+}
+@keyframes DC_loading_2 {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(19px, 0);
+	}
+}

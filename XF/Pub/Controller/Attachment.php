@@ -29,7 +29,7 @@ class Attachment extends XFCP_Attachment
 				$fileExtensions = $options->DC_AdvancedDownload_fileEx;
 				$fileExSplited = preg_split('/\s+/', $fileExtensions, -1, PREG_SPLIT_NO_EMPTY);
 				
-				if (!in_array($attachment->extension, $fileExSplited))
+				if (!in_array($attachment->extension, $fileExSplited) && !$attachment->has_thumbnail)
 				{
 					/** @var \DC\AdvancedDownload\Repository\Download $downloadRepo */
 					$downloadRepo = $this->repository('DC\AdvancedDownload:Download');
