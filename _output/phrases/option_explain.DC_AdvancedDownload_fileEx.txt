@@ -1,0 +1,2 @@
+Each type separated by a line.
+<br/><b>Images are automatically not affected by default.</b>
